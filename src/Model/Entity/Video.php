@@ -38,7 +38,7 @@ class Video extends Entity
         return $this->_getImageDirName('box_horizontal');
     }
     protected function _getFullPhotoPortraitMd(){
-        return $this->_getImageDirName('box_horizontal');
+        return $this->_getImageDirName('portrait_md');
     }
     protected function _getImageDirName($prefix){
         return '../files/videos/photo/' . $this->_properties['photo_dir'] . '/' . $prefix . '_'. $this->_properties['photo']; 

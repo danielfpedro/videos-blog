@@ -40,12 +40,12 @@ class VideosTable extends Table
                 'root' => WWW_ROOT . 'files', // Customise the root upload folder here, or omit to use the default
                 'dir' => 'photo_dir',   // The name of the field to store the folder
                 'thumbnailSizes' => [ // Declare your thumbnails
-                    'square' => ['w' => 200, 'h' => 200],   // Define the size and prefix of your thumbnails
-                    'portrait_md' => ['w' => 300, 'h' => 100],     // Crop will crop the image as well as resize it
+                    'square' => ['w' => 200, 'h' => 200, 'crop' => true],   // Define the size and prefix of your thumbnails
+                    'portrait_md' => ['w' => 300, 'h' => 150, 'crop' => true],     // Crop will crop the image as well as resize it
                     'lg' => ['w' => 600, 'h' => 200],
-                    'box_horizontal' => ['w' => 400, 'h' => 300],
+                    'box_horizontal' => ['w' => 400, 'h' => 300, 'crop' => true],
                 ],
-                'thumbnailMethod' => 'Gd'  // Options are Imagick, Gd or Gmagick
+                'thumbnailMethod' => 'Imagick'  // Options are Imagick, Gd or Gmagick
             ]
         ]);
 

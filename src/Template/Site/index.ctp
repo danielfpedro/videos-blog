@@ -37,26 +37,32 @@
 						]) ?>
 					</div>
 					<div class="col-md-8">
-						<?= $this->Html->link($video->title, $url) ?>
+						<?= $this->Html->link($video->title, $url) ?>&nbsp;
+							<small class="text-muted">
+								<?= $video->duration->format('H:i') ?>
+							</small>
 						<div>
 							<span class="label label-primary">
 								Clique Musical
 							</span>
-							&nbsp;
-							<small class="text-muted">
-								<?= $video->duration->format('H:i') ?>
-							</small>
 						</div>
-						<p>
+						<p style="margin-top: 10px;">
 							<?= $this->Text->truncate($video->description, 160) ?>
 						</p>
 						<div>
-							<a href="" class="" style="font-size: 20px;">
-								<span class="fa fa-facebook-square"></span>
-							</a>
-							<a href="" class="" style="font-size: 20px;">
-								<span class="fa fa-twitter-square"></span>
-							</a>
+							<ul class="list-inline text-muted" style="font-size: 13px">
+								<li>Compartilhar:</li>
+								<li>
+									<a href="" class="" >
+										<span class="fa fa-facebook-square"></span> Facebook
+									</a>
+								</li>
+								<li>
+									<a href="" class="" >
+										<span class="fa fa-twitter-square"></span> Twitter
+									</a>
+								</li>
+							</ul>
 						</div>						
 					</div>
 				</div>
