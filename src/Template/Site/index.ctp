@@ -1,18 +1,14 @@
 
 <div class="container-fluid" style="margin-top: -20px;">
-	<div class="row no-gutter">
-		<div class="col-md-8" style="height: 300px;background-color: green;">
+	<div class="row">
+		<div class="col-md-6" style="height: 350px;background-color: green;">
 			<h2 style="bottom: 0; left: 0; position: absolute; margin-left: 20px">Iggy Azalea - Work</h2>
 		</div>
-		<div class="col-md-4" style="background-color: red;">
-			<div class="row">
-				<div class="col-md-12" style="height: 150px; background-color: yellow;">
-					<h2 style="bottom: 0; left: 0; position: absolute;">Iggy Azalea - Work</h2>
-				</div>
-				<div class="col-md-12" style="height: 150px; background-color: red;">
-					<h2 style="bottom: 0; left: 0; position: absolute;">Iggy Azalea - Work</h2>
-				</div>
-			</div>
+		<div class="col-md-3" style="background-color: red;height: 350px;">
+			<h2 style="bottom: 0; left: 0; position: absolute;">Iggy Azalea - Work</h2>
+		</div>
+		<div class="col-md-3" style="background-color: yellow; height: 350px;">
+			<h2 style="bottom: 0; left: 0; position: absolute;">Iggy Azalea - Work</h2>
 		</div>
 	</div>
 </div>
@@ -24,6 +20,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8">
+			<h4>Recentes</h4>
 			<?php foreach ($lastVideos as $key => $video): ?>
 				<?php $url =[
 					'action' => 'player',
@@ -37,16 +34,18 @@
 						]) ?>
 					</div>
 					<div class="col-md-8">
-						<?= $this->Html->link($video->title, $url) ?>&nbsp;
+						<h4 style="margin-top: 0;">
+							<?= $this->Html->link($video->title, $url) ?>
 							<small class="text-muted">
 								<?= $video->duration->format('H:i') ?>
 							</small>
+						</h4>
 						<div>
 							<span class="label label-primary">
 								Clique Musical
 							</span>
 						</div>
-						<p style="margin-top: 10px;">
+						<p class="text-muted" style="margin-top: 10px;">
 							<?= $this->Text->truncate($video->description, 160) ?>
 						</p>
 						<div>
@@ -69,6 +68,7 @@
 			<?php endforeach ?>
 		</div>
 		<div class="col-md-4">
+			<h4>Populares</h4>
 			<?php foreach ($lastVideos as $key => $video): ?>
 				<?php $url = [
 					'action' => 'player',
