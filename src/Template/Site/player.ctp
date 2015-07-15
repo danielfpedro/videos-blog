@@ -62,6 +62,8 @@
 <div class="container" style="margin-top: 60px;">
 	<div class="row">
 		<div class="col-md-8">
+			<h4>Comentários</h4>
+			<hr>
 			<div
 				class="fb-comments"
 				data-href="http://localhost/videos-blog"
@@ -70,6 +72,8 @@
 			</div>
 		</div>
 		<div class="col-md-4">
+			<h4>Populares</h4>
+			<hr>
 			<?php foreach ($relatedVideos as $key => $video): ?>
 				<?= $this->Html->link($video->title, [
 					'action' => 'player',

@@ -20,76 +20,36 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8">
-			<h4>Recentes</h4>
-			<?php foreach ($lastVideos as $key => $video): ?>
-				<?php $url =[
-					'action' => 'player',
-					$video->slug
-				] ?>
-				<div class="row">
-					<div class="col-md-4">
-						<?= $this->Html->image($video->full_photo_box_horizontal, [
-							'class' => 'img-responsive',
-							'url' => $url
-						]) ?>
-					</div>
-					<div class="col-md-8">
-						<h4 style="margin-top: 0;">
-							<?= $this->Html->link($video->title, $url) ?>
-							<small class="text-muted">
-								<?= $video->duration->format('H:i') ?>
-							</small>
-						</h4>
-						<div>
-							<span class="label label-primary">
-								Clique Musical
-							</span>
-						</div>
-						<p class="text-muted" style="margin-top: 10px;">
-							<?= $this->Text->truncate($video->description, 160) ?>
-						</p>
-						<div>
-							<ul class="list-inline text-muted" style="font-size: 13px">
-								<li>Compartilhar:</li>
-								<li>
-									<a href="" class="" >
-										<span class="fa fa-facebook-square"></span> Facebook
-									</a>
-								</li>
-								<li>
-									<a href="" class="" >
-										<span class="fa fa-twitter-square"></span> Twitter
-									</a>
-								</li>
-							</ul>
-						</div>						
-					</div>
+			<h4 class="title-section">Recentes</h4>
+			<div class="row">
+				<div class="col-md-12">
+					<?php foreach ($videos as $key => $video): ?>
+						<?php $video->url_full = [
+							'action' => 'player',
+							$video->slug
+						];
+							echo $this->element('Site/box_horizontal', ['video' => $video]);
+						?>
+					<?php endforeach ?>	
 				</div>
-			<?php endforeach ?>
+			</div>
 		</div>
 		<div class="col-md-4">
-			<h4>Populares</h4>
-			<?php foreach ($lastVideos as $key => $video): ?>
-				<?php $url = [
-					'action' => 'player',
-					$video->slug
-				] ?>				
-				<?= $this->Html->image($video->full_photo_portrait_md, [
-					'class' => 'img-responsive',
-					'url' => $url
-				]) ?>
-				<h3>
-				<?= $this->Html->link($video->title, $url) ?>
-				</h3>
-				<div>
-					<a href="" class="btn btn-primary btn-sm">
-						<span class="fa fa-facebook"></span>
-					</a>
-					<a href="" class="btn btn-info btn-sm">
-						<span class="fa fa-twitter"></span>
-					</a>
-				</div>
-			<?php endforeach ?>
+			<h3 class="title-section">
+				Populares
+			</h3>
+			<div class="row">
+				<?php foreach ($videos as $key => $video): ?>
+					<div class="col-md-12">
+						<?php $video->url_full = [
+							'action' => 'player',
+							$video->slug
+						];
+							echo $this->element('Site/box_vertical', ['video' => $video]);
+						?>
+					</div>
+				<?php endforeach ?>
+			</div>
 		</div>
 	</div>
 </div>
