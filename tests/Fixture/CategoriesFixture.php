@@ -21,6 +21,7 @@ class CategoriesFixture extends TestFixture
         'name' => ['type' => 'string', 'length' => 60, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'datetime', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
+        'slug' => ['type' => 'string', 'length' => 4320, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -40,8 +41,9 @@ class CategoriesFixture extends TestFixture
         [
             'id' => 1,
             'name' => 'Lorem ipsum dolor sit amet',
-            'created' => '2015-07-14 01:40:17',
-            'modified' => '2015-07-14 01:40:17'
+            'created' => '2015-07-16 02:09:28',
+            'modified' => '2015-07-16 02:09:28',
+            'slug' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

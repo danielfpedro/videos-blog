@@ -15,7 +15,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <?= $this->Html->link('Cliques Musicais', []) ?>
+                    <?= $this->Html->link('Clipe Musical', [
+                        'action' => 'category',
+                        'clipe-musical'
+                    ]) ?>
+                </li>
+                <li>
+                    <?= $this->Html->link('Entrevista', [
+                        'action' => 'category',
+                        'entrevista'
+                    ]) ?>
                 </li>
             </ul>
 

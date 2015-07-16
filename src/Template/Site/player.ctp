@@ -16,13 +16,13 @@
 	});
 </script>
 
-<div style="background-color: black; margin-top: -20px;">
+<div class="player-cont">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-9">
+			<div class="col-md-8">
 				<div
 					class="embed-responsive embed-responsive-16by9"
-					style="background-image: url(../../img/<?= $video->full_photo_portrait_md ?>); background-size: cover; background-position: top center">
+					style="background-image: url(../../img/<?= $video->full_photo_portrait_lg ?>); background-size: cover; background-position: top center">
 					<iframe
 						data-src="https://www.youtube.com/embed/<?= $video->youtube_code ?>?autohide=1&showinfo=0&rel=0&modestbranding=1&autoplay=1"
 						style="display: none;"
@@ -33,20 +33,26 @@
 					</iframe>
 				</div>
 			</div>
-			<div class="col-md-3">
+			<div class="col-md-4">
 				<div class="row">
 					<div class="col-md-12">
-						<h4>
+						<h3 class="player-video-title">
 							<?= $video->title ?>
-						</h4>	
-						<p>
+						</h3>	
+						<p class="player-video-desc">
 							<?= $video->description ?>
 						</p>
 					</div>
 					<div class="col-md-12">
-						<button class="btn btn-primary btn-block">
-							<span class="fa fa-share-alt"></span> Compartilhar
-						</button>
+
+						<div class="text-right">
+							<a href="#" title="Compartilhar no Facebook" class="btn btn-primary">
+								<span class="fa fa-facebook"></span>
+							</a>
+							<a href="#" title="Compartilhar no Twitter" class="btn btn-info">
+								<span class="fa fa-twitter"></span>
+							</a>
+						</div>
 					</div>
 				</div>		
 			</div>	
@@ -62,8 +68,7 @@
 <div class="container" style="margin-top: 60px;">
 	<div class="row">
 		<div class="col-md-8">
-			<h4>Comentários</h4>
-			<hr>
+			<h4 class="title-section">Comentários</h4>
 			<div
 				class="fb-comments"
 				data-href="http://localhost/videos-blog"
@@ -72,13 +77,9 @@
 			</div>
 		</div>
 		<div class="col-md-4">
-			<h4>Populares</h4>
-			<hr>
+			<h4 class="title-section">Populares</h4>
 			<?php foreach ($relatedVideos as $key => $video): ?>
-				<?= $this->Html->link($video->title, [
-					'action' => 'player',
-					$video->slug
-				]) ?>
+				<?= $this->element('Site/box_vertical') ?>
 			<?php endforeach ?>
 		</div>
 	</div>

@@ -42,7 +42,7 @@ class VideosTable extends Table
                 'thumbnailSizes' => [ // Declare your thumbnails
                     'square' => ['w' => 200, 'h' => 200, 'crop' => true],   // Define the size and prefix of your thumbnails
                     'portrait_md' => ['w' => 300, 'h' => 150, 'crop' => true],     // Crop will crop the image as well as resize it
-                    'lg' => ['w' => 600, 'h' => 200],
+                    'portrait_lg' => ['w' => 600, 'h' => 300],
                     'box_horizontal' => ['w' => 400, 'h' => 300, 'crop' => true],
                 ],
                 'thumbnailMethod' => 'Imagick'  // Options are Imagick, Gd or Gmagick

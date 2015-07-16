@@ -14,29 +14,18 @@
 			</small>
 		</h4>
 		<p>
-			<?= $this->Html->link('<span class="label label-default">Clique Musical</label>', [
-					'action' => 'categories'
-				], [
-					'class' => 'link-categories',
-					'escape' => false
-				])
-			?>
+			<?php foreach ($video->categories as $key => $category): ?>
+				<?= $this->Html->link('<span class="label label-default">'.$category->name.'</label>', $category->full_url, [
+						'class' => 'link-categories',
+						'escape' => false
+					])
+				?>
+			<?php endforeach ?>
 		</p>
 		<p class="text-muted">
 			<?= $this->Text->truncate($video->description, 160) ?>
 		</p>
-        <ul class="social-network social-circle">
-            <li>
-            	<a href="#" class="icoFacebook" title="Compartilhar com Facebook">
-            		<i class="fa fa-facebook"></i>
-            	</a>
-            </li>
-            <li>
-            	<a href="#" class="icoTwitter" title="Compartilhar com Twitter">
-            		<i class="fa fa-twitter"></i>
-            	</a>
-            </li>
-        </ul>	
+		<?= $this->element('Site/social_share') ?>
 	</div>
 </div><!-- 
 <div class="row">

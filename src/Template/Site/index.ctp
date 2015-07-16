@@ -1,14 +1,48 @@
 
+<script>
+	$(function(){
+		$('div.home-main-overlay').hover(function(){
+			$(this).addClass('active');
+		}, function(){
+			$(this).removeClass('active');
+		});
+	});
+</script>
 <div class="container-fluid" style="margin-top: -20px;">
 	<div class="row">
-		<div class="col-md-6" style="height: 350px;background-color: green;">
-			<h2 style="bottom: 0; left: 0; position: absolute; margin-left: 20px">Iggy Azalea - Work</h2>
+		<div
+			class="col-md-6 cont-home-main"
+			style="height: 350px;background-image: url(<?= $this->Url->build($mainVideo1->full_photo_portrait_lg_from_template) ?>)">
+			
+			<?= $this->Html->link('<div class="home-main-overlay"></div>', $mainVideo1->url_full, [
+				'escape' => false
+			]) ?>
+			<h2 class="home-main-title text-shadow-dark">
+				<?= $mainVideo1->title ?>
+			</h2>
 		</div>
-		<div class="col-md-3" style="background-color: red;height: 350px;">
-			<h2 style="bottom: 0; left: 0; position: absolute;">Iggy Azalea - Work</h2>
+		<div class="col-md-3 cont-home-main"
+			style="height: 350px;background-image: url(<?= $this->Url->build($mainVideo2->full_photo_portrait_lg_from_template) ?>)">
+
+			<?= $this->Html->link('<div class="home-main-overlay"></div>', $mainVideo2->url_full, [
+				'escape' => false
+			]) ?>
+			<div>
+				<h2 class="home-main-title text-shadow-dark">
+					<?= $mainVideo2->title ?>
+				</h2>
+			</div>
 		</div>
-		<div class="col-md-3" style="background-color: yellow; height: 350px;">
-			<h2 style="bottom: 0; left: 0; position: absolute;">Iggy Azalea - Work</h2>
+		<div class="col-md-3 cont-home-main"
+			style="height: 350px;background-image: url(<?= $this->Url->build($mainVideo3->full_photo_portrait_lg_from_template) ?>)">
+			<?= $this->Html->link('<div class="home-main-overlay"></div>', $mainVideo3->url_full, [
+				'escape' => false
+			]) ?>
+			<div>
+				<h2 class="home-main-title text-shadow-dark">
+					<?= $mainVideo3->title ?>
+				</h2>
+			</div>
 		</div>
 	</div>
 </div>
