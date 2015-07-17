@@ -10,19 +10,17 @@
 		<h4 class="media-heading title-video">
 			<?= $this->Html->link($video->title, $video->url_full) ?>
 			<small class="text-muted">
-				<?= $video->duration->format('H:i') ?>
+				<?= $video->duration->format('i:s') ?>
 			</small>
 		</h4>
 		<p>
-			<?php foreach ($video->categories as $key => $category): ?>
-				<?= $this->Html->link('<span class="label label-default">'.$category->name.'</label>', $category->full_url, [
-						'class' => 'link-categories',
-						'escape' => false
-					])
-				?>
-			<?php endforeach ?>
+			<?= $this->Html->link('<span class="label label-danger">'.$video->category->name.'</label>', $video->category->full_url, [
+					'class' => 'link-categories',
+					'escape' => false
+				])
+			?>
 		</p>
-		<p class="text-muted">
+		<p class="text-muted hidden-xs">
 			<?= $this->Text->truncate($video->description, 160) ?>
 		</p>
 		<?= $this->element('Site/social_share') ?>

@@ -18,6 +18,9 @@ class VideosController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Categories']
+        ];
         $this->set('videos', $this->paginate($this->Videos));
         $this->set('_serialize', ['videos']);
     }
@@ -70,7 +73,7 @@ class VideosController extends AppController
     public function edit($id = null)
     {
         $video = $this->Videos->get($id, [
-            'contain' => ['Categories']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $video = $this->Videos->patchEntity($video, $this->request->data);

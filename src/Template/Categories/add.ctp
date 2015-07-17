@@ -12,7 +12,7 @@
         <legend><?= __('Add Category') ?></legend>
         <?php
             echo $this->Form->input('name');
-            echo $this->Form->input('videos._ids', ['options' => $videos]);
+            echo $this->Form->input('slug');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

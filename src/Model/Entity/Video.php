@@ -25,7 +25,7 @@ class Video extends Entity
         'photo' => true,
         'photo_dir' => true,
         'slug' => true,
-        'categories' => true,
+        'category' => true,
         'full_photo_box_horizontal' => true,
         'full_photo_portrait_md' => true,
         'full_photo_portrait_lg' => true,

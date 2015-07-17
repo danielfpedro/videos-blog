@@ -55,8 +55,7 @@ class CategoriesController extends AppController
                 $this->Flash->error(__('The category could not be saved. Please, try again.'));
             }
         }
-        $videos = $this->Categories->Videos->find('list', ['limit' => 200]);
-        $this->set(compact('category', 'videos'));
+        $this->set(compact('category'));
         $this->set('_serialize', ['category']);
     }
 
@@ -70,7 +69,7 @@ class CategoriesController extends AppController
     public function edit($id = null)
     {
         $category = $this->Categories->get($id, [
-            'contain' => ['Videos']
+            'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $category = $this->Categories->patchEntity($category, $this->request->data);
@@ -81,8 +80,7 @@ class CategoriesController extends AppController
                 $this->Flash->error(__('The category could not be saved. Please, try again.'));
             }
         }
-        $videos = $this->Categories->Videos->find('list', ['limit' => 200]);
-        $this->set(compact('category', 'videos'));
+        $this->set(compact('category'));
         $this->set('_serialize', ['category']);
     }
 

@@ -16,10 +16,12 @@ class SiteController extends AppController
 			'conditions' => ['Videos.id' => 2]
 		])->first();
 		$mainVideo2 = $this->Videos->find('all', [
-			'fields' => []
+			'fields' => [],
+			'conditions' => ['Videos.id' => 1]
 		])->first();
 		$mainVideo3 = $this->Videos->find('all', [
-			'fields' => []
+			'fields' => [],
+			'conditions' => ['Videos.id' => 3]
 		])->first();
 
 		$videos = $this->Videos->find('all', [
@@ -43,6 +45,7 @@ class SiteController extends AppController
 		]);
 		$video = $this->Videos->find('all', [
 			'fields' => [],
+			'contain' => ['Categories'],
 			'conditions' => [
 				'Videos.slug' => $slug
 			],

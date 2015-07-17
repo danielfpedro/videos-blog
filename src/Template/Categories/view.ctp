@@ -15,6 +15,8 @@
         <div class="large-5 columns strings">
             <h6 class="subheader"><?= __('Name') ?></h6>
             <p><?= h($category->name) ?></p>
+            <h6 class="subheader"><?= __('Slug') ?></h6>
+            <p><?= h($category->slug) ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
@@ -43,7 +45,9 @@
             <th><?= __('Duration') ?></th>
             <th><?= __('Tags') ?></th>
             <th><?= __('Photo') ?></th>
-            <th><?= __('Folder Image') ?></th>
+            <th><?= __('Photo Dir') ?></th>
+            <th><?= __('Slug') ?></th>
+            <th><?= __('Category Id') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($category->videos as $videos): ?>
@@ -57,7 +61,9 @@
             <td><?= h($videos->duration) ?></td>
             <td><?= h($videos->tags) ?></td>
             <td><?= h($videos->photo) ?></td>
-            <td><?= h($videos->folder_image) ?></td>
+            <td><?= h($videos->photo_dir) ?></td>
+            <td><?= h($videos->slug) ?></td>
+            <td><?= h($videos->category_id) ?></td>
 
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Videos', 'action' => 'view', $videos->id]) ?>

@@ -49,11 +49,7 @@ class VideosTable extends Table
             ]
         ]);
 
-        $this->belongsToMany('Categories', [
-            'foreignKey' => 'video_id',
-            'targetForeignKey' => 'category_id',
-            'joinTable' => 'categories_videos'
-        ]);
+        $this->belongsTo('Categories');
     }
 
     /**

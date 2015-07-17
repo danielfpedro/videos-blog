@@ -27,11 +27,7 @@ class CategoriesTable extends Table
         $this->displayField('name');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
-        $this->belongsToMany('Videos', [
-            'foreignKey' => 'category_id',
-            'targetForeignKey' => 'video_id',
-            'joinTable' => 'categories_videos'
-        ]);
+        $this->hasMany('Videos');
     }
 
     /**

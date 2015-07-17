@@ -23,8 +23,12 @@
             <p><?= h($video->tags) ?></p>
             <h6 class="subheader"><?= __('Photo') ?></h6>
             <p><?= h($video->photo) ?></p>
-            <h6 class="subheader"><?= __('Folder Image') ?></h6>
-            <p><?= h($video->folder_image) ?></p>
+            <h6 class="subheader"><?= __('Photo Dir') ?></h6>
+            <p><?= h($video->photo_dir) ?></p>
+            <h6 class="subheader"><?= __('Slug') ?></h6>
+            <p><?= h($video->slug) ?></p>
+            <h6 class="subheader"><?= __('Category') ?></h6>
+            <p><?= $video->has('category') ? $this->Html->link($video->category->name, ['controller' => 'Categories', 'action' => 'view', $video->category->id]) : '' ?></p>
         </div>
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
@@ -38,39 +42,5 @@
             <h6 class="subheader"><?= __('Duration') ?></h6>
             <p><?= h($video->duration) ?></p>
         </div>
-    </div>
-</div>
-<div class="related row">
-    <div class="column large-12">
-    <h4 class="subheader"><?= __('Related Categories') ?></h4>
-    <?php if (!empty($video->categories)): ?>
-    <table cellpadding="0" cellspacing="0">
-        <tr>
-            <th><?= __('Id') ?></th>
-            <th><?= __('Name') ?></th>
-            <th><?= __('Created') ?></th>
-            <th><?= __('Modified') ?></th>
-            <th class="actions"><?= __('Actions') ?></th>
-        </tr>
-        <?php foreach ($video->categories as $categories): ?>
-        <tr>
-            <td><?= h($categories->id) ?></td>
-            <td><?= h($categories->name) ?></td>
-            <td><?= h($categories->created) ?></td>
-            <td><?= h($categories->modified) ?></td>
-
-            <td class="actions">
-                <?= $this->Html->link(__('View'), ['controller' => 'Categories', 'action' => 'view', $categories->id]) ?>
-
-                <?= $this->Html->link(__('Edit'), ['controller' => 'Categories', 'action' => 'edit', $categories->id]) ?>
-
-                <?= $this->Form->postLink(__('Delete'), ['controller' => 'Categories', 'action' => 'delete', $categories->id], ['confirm' => __('Are you sure you want to delete # {0}?', $categories->id)]) ?>
-
-            </td>
-        </tr>
-
-        <?php endforeach; ?>
-    </table>
-    <?php endif; ?>
     </div>
 </div>

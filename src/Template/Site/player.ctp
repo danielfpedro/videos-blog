@@ -36,22 +36,43 @@
 			<div class="col-md-4">
 				<div class="row">
 					<div class="col-md-12">
+						<div style="margin-top: 10px;">
+							<?= $this->Html->link($video->category->name, [
+									'action' => 'category',
+									$video->category->slug
+								], [
+								'escape' => false,
+								'class' => 'link-categories-lg',
+								'style' => 'color: #EEE; font-weigth: bold;text-decoration: none;'
+							]) ?>
+						</div>
 						<h3 class="player-video-title">
 							<?= $video->title ?>
 						</h3>	
+<!-- 						<p>
+							<?= $this->Html->link('<span class="label label-default label-custom">Entrevista</span>', [
+									'action' => 'category',
+									$video->category->slug
+								], [
+								'escape' => false,
+								'class' => 'link-categories-lg'
+							]) ?>
+							
+						</p> -->
 						<p class="player-video-desc">
 							<?= $video->description ?>
 						</p>
 					</div>
-					<div class="col-md-12">
-
-						<div class="text-right">
-							<a href="#" title="Compartilhar no Facebook" class="btn btn-primary">
-								<span class="fa fa-facebook"></span>
-							</a>
-							<a href="#" title="Compartilhar no Twitter" class="btn btn-info">
-								<span class="fa fa-twitter"></span>
-							</a>
+					<div class="col-md-12" style="margin-top: 20px;">
+						<div class="row">
+							<div class="col-md-12 text-right">
+								<a href="#" title="Compartilhar no Facebook" class="btn btn-primary">
+									<span class="fa fa-facebook"></span>
+								</a>
+								<a href="#" title="Compartilhar no Twitter" class="btn btn-info">
+									<span class="fa fa-twitter"></span>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>		
