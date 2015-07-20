@@ -14,6 +14,16 @@ use Cake\Validation\Validator;
  */
 class VideosTable extends Table
 {
+
+    protected $commonFields = [
+        'Videos.id',
+        'Videos.title',
+        'Videos.description',
+        'Videos.slug',
+        'Videos.duration',
+        'Videos.photo_dir',
+        'Videos.photo'
+    ];
     protected function _initializeSchema(\Cake\Database\Schema\Table $table)
     {
         $table->columnType('photo', 'proffer.file');
@@ -50,6 +60,43 @@ class VideosTable extends Table
         ]);
 
         $this->belongsTo('Categories');
+    }
+
+    public function getHomeDestaques ($limit){
+        $videos = $this->find('all', [
+            'fields' => $this->commonFields,
+            'conditions' => ['Videos.destaque' => true],
+            'order' => ['Videos.destaque_order'],
+            'limit' => $limit,
+        ]);
+
+        return $videos;
+    }
+    public function getNewests ($limit){
+        return $this->find('all', [
+            'fields' => $this->commonFields,
+            'contain' => ['Categories' => function ($q){
+                return $q
+                    ->select(['Categories.name', 'Categories.slug']);
+            }],
+            'conditions' => ['Videos.destaque' => false],
+            'order' => ['Videos.created' => 'DESC'],
+            'limit' => $limit,
+        ]);
+    }
+    public function getPlayedVideo ($slug){
+        $fields = $this->commonFields;
+        $fields[] = 'Videos.id'; // Pega o ID tb para excluir este video do Widget de videos populares
+        $fields[] = 'Videos.youtube_code';
+
+        return $this->find('all', [
+            'fields' => $fields,
+            'conditions' => ['Videos.slug' => $slug],
+            'contain' => ['Categories' => function ($q){
+                return $q
+                    ->select(['Categories.name', 'Categories.slug']);
+            }]
+        ])->first();
     }
 
     /**

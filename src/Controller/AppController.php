@@ -27,6 +27,8 @@ use Cake\Controller\Controller;
 class AppController extends Controller
 {
 
+    public $appName = 'Nome do App';
+
     /**
      * Initialization hook method.
      *
@@ -38,5 +40,6 @@ class AppController extends Controller
     {
         parent::initialize();
         $this->loadComponent('Flash');
+        $this->set('appName', $this->appName);
     }
 }

@@ -1,4 +1,5 @@
-<?= $this->assign('title', ' - ' . $video->title) ?>
+<?= $this->assign('title', $video->title) ?>
+
 <style>
 	.fb-comments, .fb-comments iframe[style] {width: 100% !important;}
 </style>
@@ -22,12 +23,12 @@
 			<div class="col-md-8">
 				<div
 					class="embed-responsive embed-responsive-16by9"
-					style="background-image: url(../../img/<?= $video->full_photo_portrait_lg ?>); background-size: cover; background-position: top center">
+					style="background-color: #000">
 					<iframe
 						data-src="https://www.youtube.com/embed/<?= $video->youtube_code ?>?autohide=1&showinfo=0&rel=0&modestbranding=1&autoplay=1"
-						style="display: none;"
+						style=""
 						class="embed-responsive-item"
-						src=""
+						src="https://www.youtube.com/embed/<?= $video->youtube_code ?>?autohide=1&showinfo=0&rel=0&modestbranding=1&autoplay=1"
 						frameborder="0"
 						allowfullscreen>
 					</iframe>
@@ -42,7 +43,7 @@
 									$video->category->slug
 								], [
 								'escape' => false,
-								'class' => 'link-categories-lg',
+								'class' => 'link-categories-player',
 								'style' => 'color: #EEE; font-weigth: bold;text-decoration: none;'
 							]) ?>
 						</div>
@@ -66,10 +67,18 @@
 					<div class="col-md-12" style="margin-top: 20px;">
 						<div class="row">
 							<div class="col-md-12 text-right">
-								<a href="#" title="Compartilhar no Facebook" class="btn btn-primary">
+								<a
+									style="width: 36px; color: #FFF!important"
+									href="#"
+									title="Compartilhar no Facebook"
+									class="btn btn-primary">
 									<span class="fa fa-facebook"></span>
 								</a>
-								<a href="#" title="Compartilhar no Twitter" class="btn btn-info">
+								<a
+									style="width: 36px;color: #FFF!important"
+									href="#"
+									title="Compartilhar no Twitter"
+									class="btn btn-info">
 									<span class="fa fa-twitter"></span>
 								</a>
 							</div>
@@ -99,9 +108,7 @@
 		</div>
 		<div class="col-md-4">
 			<h4 class="title-section">Populares</h4>
-			<?php foreach ($relatedVideos as $key => $video): ?>
-				<?= $this->element('Site/box_vertical') ?>
-			<?php endforeach ?>
+			<?= $this->cell('Populars', ['limit' => 20, 'excluirIds' => $video->id]) ?>
 		</div>
 	</div>
 </div>

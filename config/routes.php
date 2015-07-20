@@ -47,7 +47,10 @@ Router::scope('/', function ($routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    $routes->connect('/', ['controller' => 'Site', 'action' => 'index']);
+    $routes->connect('/p/*', ['controller' => 'Site', 'action' => 'player']);
+    $routes->connect('/categoria/*', ['controller' => 'Site', 'action' => 'category']);
+    $routes->connect('/pesquisa', ['controller' => 'Site', 'action' => 'search']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

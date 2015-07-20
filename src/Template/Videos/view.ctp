@@ -33,6 +33,10 @@
         <div class="large-2 columns numbers end">
             <h6 class="subheader"><?= __('Id') ?></h6>
             <p><?= $this->Number->format($video->id) ?></p>
+            <h6 class="subheader"><?= __('Destaque') ?></h6>
+            <p><?= $this->Number->format($video->destaque) ?></p>
+            <h6 class="subheader"><?= __('Destaque Order') ?></h6>
+            <p><?= $this->Number->format($video->destaque_order) ?></p>
         </div>
         <div class="large-2 columns dates end">
             <h6 class="subheader"><?= __('Created') ?></h6>

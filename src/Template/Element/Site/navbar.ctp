@@ -18,7 +18,7 @@
                 //     'class' => 'navbar-brand'
                 // ])
             ?>
-            <?= $this->Html->link('Logo here', ['action' => 'index'], ['class' => 'navbar-brand', 'style' => 'color: #e74c3c']) ?>
+            <?= $this->Html->link('Logo here', ['action' => 'index'], ['class' => 'navbar-brand navbar-logo']) ?>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -34,6 +34,12 @@
                     <?= $this->Html->link('Entrevista', [
                         'action' => 'category',
                         'entrevista'
+                    ]) ?>
+                </li>
+                <li>
+                    <?= $this->Html->link('Dicas e Conselhos', [
+                        'action' => 'category',
+                        'dicas-e-conselhos'
                     ]) ?>
                 </li>
             </ul>
@@ -64,26 +70,25 @@
                 <li style="margin-right: 10px">
                     <a
                         href="#search"
-                        class="navbar-link"
-                        style="border: 0; background: none; font-size: 16px;">
+                        class="navbar-link navbar-icons">
                         <span class="fa fa-search"></span>
                     </a>
                 </li>
                 <li>
-                    <button
-                        type="button"
-                        class="btn navbar-btn"
-                        style="border: 0; background: none; font-size: 16px;">
+                    <a
+                        title="Nossa página no Facebook"
+                        href="#"
+                        class="navbar-link navbar-icons navbar-icons-facebook">
                         <span class="fa fa-facebook"></span>
-                    </button>
+                    </a>
                 </li>
                 <li>
-                    <button
-                        type="button"
-                        class="btn navbar-btn"
-                        style="border: 0; background: none; font-size: 16px;">
+                    <a
+                        title="Nossa conta no Twitter"
+                        href="#"
+                        class="navbar-link navbar-icons navbar-icons-twitter">
                         <span class="fa fa-twitter"></span>
-                    </button>
+                    </a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

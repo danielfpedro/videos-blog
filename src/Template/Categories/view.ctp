@@ -48,6 +48,8 @@
             <th><?= __('Photo Dir') ?></th>
             <th><?= __('Slug') ?></th>
             <th><?= __('Category Id') ?></th>
+            <th><?= __('Destaque') ?></th>
+            <th><?= __('Destaque Order') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
         <?php foreach ($category->videos as $videos): ?>
@@ -64,6 +66,8 @@
             <td><?= h($videos->photo_dir) ?></td>
             <td><?= h($videos->slug) ?></td>
             <td><?= h($videos->category_id) ?></td>
+            <td><?= h($videos->destaque) ?></td>
+            <td><?= h($videos->destaque_order) ?></td>
 
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['controller' => 'Videos', 'action' => 'view', $videos->id]) ?>

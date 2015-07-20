@@ -25,12 +25,13 @@ class Video extends Entity
         'photo' => true,
         'photo_dir' => true,
         'slug' => true,
+        'category_id' => true,
         'category' => true,
         'full_photo_box_horizontal' => true,
         'full_photo_portrait_md' => true,
         'full_photo_portrait_lg' => true,
         'full_photo_portrait_lg_from_template' => true,
-        'url_full' => true,
+        'player_url' => true,
     ];
 
     protected function _setTitle($title){
@@ -55,7 +56,7 @@ class Video extends Entity
     protected function _getImageDirNameFromTemplate($prefix){
         return '/files/videos/photo/' . $this->_properties['photo_dir'] . '/' . $prefix . '_'. $this->_properties['photo']; 
     }
-    protected function _getUrlFull()
+    protected function _getPlayerUrl()
     {
         return ['action' => 'player', $this->_properties['slug']];
     }

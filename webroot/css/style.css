@@ -1,5 +1,24 @@
 body{
 	/*background-color: #EEE;*/
+	font-family: 'Open Sans', sans-serif;
+}
+a:hover{
+	color: #f05f40!important;
+	transition: .2s!important;
+}
+.navbar-icons{
+	font-size: 16px;
+	color: #555!important;
+}
+.navbar-icons-facebook:hover{
+	color: #286090!important;
+}
+.navbar-icons-twitter:hover{
+	color: #5bc0de!important;
+}
+.navbar-logo{
+	font-weight: bold;
+	color: #f05f40!important;
 }
 .margin-top-sm{
 	margin-top: 15px!important;
@@ -44,6 +63,9 @@ body{
 	font-weight: bold;
 	text-decoration: none;
 }
+.home-main-title-sm{
+	font-size: 26px;
+}
 .embed-responsive{
 	cursor: pointer;
 	background-color: #222;
@@ -58,26 +80,27 @@ body{
 	margin-bottom: 30px;
 }
 h3.player-video-title{
-	font-size: 26px;
+	font-size: 28px;
+
 }
 
 .title-section{
 	font-size: 18px;
 	margin-top: 0;
 	margin-bottom: 30px;
-	color: #555;
-	font-weight: bold;
+	color: #888;
+	/*font-weight: bold;*/
 }
 
 h4.title-video{
-	font-size: 22px;
+	font-size: 19px;
 }
 h4.title-video a{
-	color: #666;
+	color: #333;
 	font-weight: bold;
 }
 h4.title-video a:hover{
-	color: #333;
+	/*color: #000;*/
 	text-decoration: none;
 }
 h4.title-video small{
@@ -95,9 +118,32 @@ h4.title-video small{
 .link-categories:hover{
 	text-decoration: none;
 }
-.link-categories-lg span{
-	font-size: 12px;
+.link-categories-player{
+	font-size: 14px;
+}
+.link-categories-player:hover{
+	color: #FFF!important;
+}
+
+.btn-custom{
+	border-radius: 300px;
 	font-weight: bold;
+	padding: 13px 35px!important;
+	font-size: 16px;
+	transition: .3s;
+}
+.btn-custom:focus{
+	outline: 0;
+	color: #FFF;
+}
+.btn-warning-custom{
+	background-color: #f05f40;
+	color: #FFF;
+	border: 0;
+}
+.btn-warning-custom:hover{
+	color: #FFF;
+	background-color: #EF5230;
 }
 /*SOCIAL BUTTONS*/
 

@@ -7,7 +7,7 @@
     </ul>
 </div>
 <div class="videos form large-10 medium-9 columns">
-    <?= $this->Form->create($video) ?>
+    <?= $this->Form->create($video, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Add Video') ?></legend>
         <?php
@@ -16,10 +16,10 @@
             echo $this->Form->input('description');
             echo $this->Form->input('duration', ['second' => null]);
             echo $this->Form->input('tags');
-            echo $this->Form->input('photo');
-            echo $this->Form->input('photo_dir');
-            echo $this->Form->input('slug');
+            echo $this->Form->input('photo', ['type' => 'file']);
             echo $this->Form->input('category_id', ['options' => $categories]);
+            echo $this->Form->input('destaque');
+            echo $this->Form->input('destaque_order');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
