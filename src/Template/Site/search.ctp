@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-9">
 			<h3 class="title-section margin-top-sm">
 				Resultado da busca para "<?= h($this->request->query('q')) ?>"
 			</h3>
@@ -29,18 +29,33 @@
 		        </div>
 		    </form>
 		    <hr>
-		</div>
-	</div>
-	<br>
-	<div class="row">
-		<div class="col-md-8">
-			<?php foreach ($videos as $video): ?>
-				<?= $this->element('Site/box_horizontal', ['video' => $video]) ?>
-			<?php endforeach ?>
 
-			<?php if (!$videos->toArray()): ?>
-				<h4>Nenhum vídeo encontrado com os termos informados na pesquisa.</h4>
-			<?php endif ?>
+			<div class="row">
+				<div class="col-md-12" style="margin: 25px 0 35px 0;">
+					<img src="http://placehold.it/600x60" width="100%">
+				</div>
+				<div class="col-md-12">
+					<?php foreach ($videos as $video): ?>
+						<?= $this->element('Site/box_horizontal', ['video' => $video]) ?>
+					<?php endforeach ?>
+
+					<?php if (!$videos->toArray()): ?>
+						<h4>Nenhum vídeo encontrado com os termos informados na pesquisa.</h4>
+					<?php endif ?>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+				<div class="col-md-12">
+					<img src="http://placehold.it/500x400" width="100%">
+				</div>
+			</div>
+			<h3 class="title-section margin-top-sm">
+				Populares
+			</h3>
+			<?= $this->cell('Populars') ?>
 		</div>
 	</div>
 

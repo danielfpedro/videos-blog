@@ -31,7 +31,7 @@ a:hover{
 	background-position: top;
 }
 .home-main-overlay{
-	opacity: .4;
+	opacity: .3;
 	background-color: #000;
 	display: block;
 	position: absolute;
@@ -94,6 +94,7 @@ h3.player-video-title{
 
 h4.title-video{
 	font-size: 19px;
+	line-height: 25px;
 }
 h4.title-video a{
 	color: #333;
