@@ -8,12 +8,13 @@ use Cake\Network\Exception\NotFoundException;
 
 class SiteController extends AppController
 {
-	public $layout = 'site';
 
 	public function beforeFilter(Event $event)
 	{
 		parent::beforeFilter($event);
 		$this->loadModel('Videos');
+
+		$this->viewBuilder()->layout('site');
 	}
 
 	public function index()
