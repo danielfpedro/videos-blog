@@ -59,8 +59,8 @@ class VideosController extends AppController
             }
         }
         $categories = $this->Videos->Categories->find('list', ['limit' => 200]);
-        $this->set(compact('video', 'categories'));
-        $this->set('_serialize', ['video']);
+        $artists = $this->Videos->Artists->find('list', ['limit' => 200]);
+        $this->set(compact('video', 'categories', 'artists'));
     }
 
     /**

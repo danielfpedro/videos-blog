@@ -9,15 +9,17 @@
 				]) ?>
 				<h4 class="title-video">
 					<?= $this->Html->link($video->title, $video->player_url) ?>
-					<small class="text-muted">
+<!-- 					<small class="text-muted">
 						<?= ($video->duration->format('h') == 12) ? $video->duration->format('i:s') : $video->duration->format('h:i:s') ?>
-					</small>
+					</small> -->
 				</h4>
 				<p>
-					<?= $this->Html->link('<span class="label label-default">'.$video->category->name.'</label>', $video->category->full_url, [
-							'class' => 'link-categories',
-							'escape' => false
-						])
+					<?= $this->Html->link($video->artist->name,
+							$video->artist->profile_full_url,
+							[
+								'escape' => false
+							]
+						)
 					?>
 				</p>
 				<?= $this->element('Site/social_share') ?>

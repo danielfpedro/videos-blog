@@ -60,6 +60,7 @@ class VideosTable extends Table
         ]);
 
         $this->belongsTo('Categories');
+        $this->belongsTo('Artists');
     }
 
     public function getHomeDestaques ($limit){
@@ -75,15 +76,35 @@ class VideosTable extends Table
     public function getNewests ($limit){
         return $this->find('all', [
             'fields' => $this->commonFields,
-            'contain' => ['Categories' => function ($q){
-                return $q
-                    ->select(['Categories.name', 'Categories.slug']);
-            }],
+            'contain' => [
+                'Categories' => function ($q){
+                    return $q
+                        ->select(['Categories.name', 'Categories.slug']);
+                },
+                'Artists' => function ($q){
+                    return $q
+                        ->select(['name', 'slug']);
+                },
+            ],
             'conditions' => ['Videos.destaque' => false],
             'order' => ['Videos.created' => 'DESC'],
             'limit' => $limit,
         ]);
     }
+
+    public function allByArtistId($id, $limit)
+    {
+        return [
+            'conditions' => [
+                'artist_id' => $id
+            ],
+            'contain' => [
+                'Artists'
+            ],
+            'limit' => $limit
+        ];
+    }
+
     public function getPlayedVideo ($slug){
         $fields = $this->commonFields;
         $fields[] = 'Videos.id'; // Pega o ID tb para excluir este video do Widget de videos populares
@@ -92,9 +113,9 @@ class VideosTable extends Table
         return $this->find('all', [
             'fields' => $fields,
             'conditions' => ['Videos.slug' => $slug],
-            'contain' => ['Categories' => function ($q){
+            'contain' => ['Artists' => function ($q){
                 return $q
-                    ->select(['Categories.name', 'Categories.slug']);
+                    ->select(['name', 'slug']);
             }]
         ])->first();
     }

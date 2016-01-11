@@ -38,9 +38,9 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div style="margin-top: 10px;">
-							<?= $this->Html->link($video->category->name, [
-									'action' => 'category',
-									$video->category->slug
+							<?= $this->Html->link($video->artist->name, [
+									'action' => 'artistProfile',
+									$video->artist->slug
 								], [
 								'escape' => false,
 								'class' => 'link-categories-player',

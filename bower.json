@@ -2,7 +2,11 @@
   "name": "videos-blog",
   "homepage": "https://github.com/danielfpedro/videos-blog",
   "authors": [
+<<<<<<< HEAD
     "Daniel Pedro <ag.interagir@gmail.com>"
+=======
+    "Daniel Pedro <danielfpedro@gmail.com>"
+>>>>>>> f46f166e8771ea48de92327abe001e0313c6370b
   ],
   "description": "",
   "main": "",
@@ -17,9 +21,15 @@
     "tests"
   ],
   "dependencies": {
+<<<<<<< HEAD
     "fontawesome": "~4.3.0",
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.5.0",
     "jquery-ui": "~1.11.4"
+=======
+    "bootstrap": "~3.3.5",
+    "jquery-ui": "~1.11.4",
+    "font-awesome": "~4.5.0"
+>>>>>>> f46f166e8771ea48de92327abe001e0313c6370b
   }
 }

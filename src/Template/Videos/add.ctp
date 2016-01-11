@@ -18,6 +18,7 @@
             echo $this->Form->input('tags');
             echo $this->Form->input('photo', ['type' => 'file']);
             echo $this->Form->input('category_id', ['options' => $categories]);
+            echo $this->Form->input('artist_id', ['options' => $artists]);
             echo $this->Form->input('destaque');
             echo $this->Form->input('destaque_order');
         ?>

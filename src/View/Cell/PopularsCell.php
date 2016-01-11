@@ -43,10 +43,18 @@ class PopularsCell extends Cell
                 'Videos.photo_dir',
                 'Videos.photo'
             ],
-            'contain' => ['Categories' => function ($q){
-                return $q
-                    ->select(['Categories.name', 'Categories.slug']);
-            }],
+            'contain' => [
+                'Categories' => function ($q){
+                    return $q
+                        ->select(['Categories.name', 'Categories.slug']);
+            
+                },
+                'Artists' => function ($q){
+                    return $q
+                        ->select(['name', 'slug']);
+            
+                }
+            ],
             'conditions' => $conditions,
             'limit' => $limit,
         ]);

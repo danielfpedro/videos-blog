@@ -20,6 +20,9 @@
 			<h2 class="home-main-title text-shadow-dark">
 				<?= $destaques[0]->title ?>
 			</h2>
+			<span class="">
+				<?= $destaques[0]->title ?>
+			</span>
 		</div>
 		<div class="col-md-3 cont-home-main"
 			style="height: 350px;background-image: url(<?= $this->Url->build($destaques[1]->full_photo_portrait_lg_from_template) ?>)">

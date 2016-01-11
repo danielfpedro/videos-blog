@@ -17,21 +17,8 @@ class Video extends Entity
      * @var array
      */
     protected $_accessible = [
-        'title' => true,
-        'youtube_code' => true,
-        'description' => true,
-        'duration' => true,
-        'tags' => true,
-        'photo' => true,
-        'photo_dir' => true,
-        'slug' => true,
-        'category_id' => true,
-        'category' => true,
-        'full_photo_box_horizontal' => true,
-        'full_photo_portrait_md' => true,
-        'full_photo_portrait_lg' => true,
-        'full_photo_portrait_lg_from_template' => true,
-        'player_url' => true,
+        '*' => true,
+        'id' => false
     ];
 
     protected function _setTitle($title){

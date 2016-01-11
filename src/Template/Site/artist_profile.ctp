@@ -1,9 +1,9 @@
-<?= $this->assign('title', 'Pesquisa por \'' . $this->request->query('q') . '\' - ' . $appName) ?>
+<?= $this->assign('title', $artist->name . ' - ' . $appName) ?>
 
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
-			<h3 class="title-section margin-top-sm">
+<!-- 			<h3 class="title-section margin-top-sm">
 				Resultado da busca para "<?= h($this->request->query('q')) ?>"
 			</h3>
 		    <form
@@ -28,33 +28,43 @@
 			        </button>
 		        </div>
 		    </form>
+
+		    -->
 		    <hr>
 
-			<div class="row">
-				<div class="col-md-12" style="margin: 25px 0 35px 0;">
-					<img src="http://placehold.it/600x60" width="100%">
-				</div>
-				<?php if (!$artists->isEmpty()): ?>
-					<div class="col-md-4">
-						<h3 class="title-section">
-							Artistas
-						</h3>
-						<?php foreach ($artists as $artist): ?>
-							<p><?= $artist->name ?></p>
-						<?php endforeach ?>
+			<div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-md-2 col-sm-2">
+								<?= $this->Html->image($artist->profile_picture, [
+									'width' => '100%',
+									'class' => 'img-circle'
+								]) ?>
+							</div>
+							<div class="col-md-10 col-sm-10">
+								<h3>
+									<?= $artist->name ?>
+								</h3>
+							</div>
+						</div>
 					</div>
-				<?php endif ?>
-				<div class="<?= ($artists->isEmpty()) ? 'col-md-12' : 'col-md-8' ?>">
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row">
+<!-- 				<div class="col-md-12" style="margin: 25px 0 35px 0;">
+					<img src="http://placehold.it/600x60" width="100%">
+				</div> -->
+				<div class="col-md-12">
 					<h3 class="title-section">
 						Vídeos
 					</h3>
 					<?php foreach ($videos as $video): ?>
 						<?= $this->element('Site/box_horizontal', ['video' => $video]) ?>
 					<?php endforeach ?>
-
-					<?php if (!$videos->toArray()): ?>
-						<h4>Nenhum vídeo encontrado com os termos informados na pesquisa.</h4>
-					<?php endif ?>
 				</div>
 			</div>
 

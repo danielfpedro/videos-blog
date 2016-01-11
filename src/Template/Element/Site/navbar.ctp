@@ -23,11 +23,17 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+<!--             <ul class="nav navbar-nav">
                 <li>
-                    <?= $this->Html->link('Música', [
+                    <?= $this->Html->link('Clipe', [
                         'action' => 'category',
-                        'musica'
+                        'clipe'
+                    ]) ?>
+                </li>
+                <li>
+                    <?= $this->Html->link('Ao vivo', [
+                        'action' => 'category',
+                        'ao-vivo'
                     ]) ?>
                 </li>
                 <li>
@@ -36,61 +42,58 @@
                         'entrevista'
                     ]) ?>
                 </li>
-                <li>
-                    <?= $this->Html->link('Dicas e Conselhos', [
-                        'action' => 'category',
-                        'dicas-e-conselhos'
-                    ]) ?>
-                </li>
-            </ul>
+            </ul> -->
 
             
 
-            <ul class="nav navbar-nav navbar-right">
-<!--                 <li>
-                <form
-                class="navbar-form navbar-left"
-                role="search"
-                action="<?= $this->url->build([
-                    'action' => 'search'
-                ]) ?>">
-                <div class="form-group">
-                    <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Pesquisar"
-                        name="q"
-                        value="<?= $this->request->query('q') ?>">
-                </div>
-                <button type="submit" class="btn btn-default" style="margin-left: -40px; border: 0; background: none">
-                    <span class="fa fa-search"></span>
-                </button>
-            </form>
-                </li> -->
-                <li style="margin-right: 10px">
-                    <a
-                        href="#search"
-                        class="navbar-link navbar-icons">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+    <!--                 <li>
+                    <form
+                    class="navbar-form navbar-left"
+                    role="search"
+                    action="<?= $this->url->build([
+                        'action' => 'search'
+                    ]) ?>">
+                    <div class="form-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Pesquisar"
+                            name="q"
+                            value="<?= $this->request->query('q') ?>">
+                    </div>
+                    <button type="submit" class="btn btn-default" style="margin-left: -40px; border: 0; background: none">
                         <span class="fa fa-search"></span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        title="Nossa página no Facebook"
-                        href="#"
-                        class="navbar-link navbar-icons navbar-icons-facebook">
-                        <span class="fa fa-facebook"></span>
-                    </a>
-                </li>
-                <li>
-                    <a
-                        title="Nossa conta no Twitter"
-                        href="#"
-                        class="navbar-link navbar-icons navbar-icons-twitter">
-                        <span class="fa fa-twitter"></span>
-                    </a>
-                </li>
-            </ul>
+                    </button>
+                </form>
+                    </li> -->
+                    <li style="margin-right: 10px">
+                        <a
+                            href="#search"
+                            class="navbar-link navbar-icons">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            title="Nossa página no Facebook"
+                            href="#"
+                            class="navbar-link navbar-icons navbar-icons-facebook">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            title="Nossa conta no Twitter"
+                            href="#"
+                            class="navbar-link navbar-icons navbar-icons-twitter">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                    </li>
+                </ul>
+                <?= $this->Html->link('Entrar', [], ['class' => 'btn btn-sm btn-primary navbar-btn navbar-right']) ?>
+            </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

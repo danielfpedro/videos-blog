@@ -17,9 +17,8 @@ class Category extends Entity
      * @var array
      */
     protected $_accessible = [
-        'name' => true,
-        'slug' => true,
-        'videos' => true,
+        '*' => true,
+        'id' => false,
     ];
 
     protected function _setName($name){

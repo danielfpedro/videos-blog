@@ -25,6 +25,16 @@ class SiteController extends AppController
 		$this->set(compact('newestsVideos', 'destaques'));
 	}
 
+	public function artistProfile($slug = null)
+	{
+		$artist = $this->Videos->Artists->getBySlug($slug);
+
+		$this->paginate = $this->Videos->allByArtistId($artist->id, 20);
+		$videos = $this->paginate($this->Videos);
+
+		$this->set(compact('artist', 'videos'));
+	}
+
 	public function player($slug)
 	{
 		$video = $this->Videos->getPlayedVideo($slug);
@@ -74,7 +84,7 @@ class SiteController extends AppController
 		
 		$q = str_replace(' ', '%', $this->request->query('q'));
 
-		$this->paginate =[
+		$this->paginate = [
 			'fields' => [
 				'Videos.title',
 				'Videos.description',
@@ -84,11 +94,26 @@ class SiteController extends AppController
 				'Videos.photo'
 			],
 			'conditions' => ['Videos.tags LIKE' => '%'.$q.'%'],
-				'contain' => ['Categories' => function($q){
-				return $q->select(['Categories.name', 'Categories.slug']);
-			}],
+			'contain' => [
+				'Categories' => function($q){
+					return $q->select(['Categories.name', 'Categories.slug']);
+				},
+				'Artists' => function($q){
+					return $q->select(['Artists.name', 'Artists.slug']);
+				}
+			],
 			'limit' => 20
 		];
+
+		$artists = $this->Videos->Artists->find('all', [
+			'conditions' => [
+				'name LIKE' => '%'.$q.'%'
+			],
+			'limit' => 8
+		]);
+
+		$this->set(compact('artists'));
+
 		$this->set('videos', $this->paginate($this->Videos));
 	}
 }
