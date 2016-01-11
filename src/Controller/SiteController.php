@@ -8,12 +8,13 @@ use Cake\Network\Exception\NotFoundException;
 
 class SiteController extends AppController
 {
-	public $layout = 'site';
 
 	public function beforeFilter(Event $event)
 	{
 		parent::beforeFilter($event);
 		$this->loadModel('Videos');
+
+		$this->viewBuilder()->layout('site');
 	}
 
 	public function index()
@@ -35,10 +36,16 @@ class SiteController extends AppController
 	public function category($categorySlug)
 	{
 		$this->loadModel('Categories');
+
 		$category = $this->Categories->find('all', [
 			'fields' => ['id', 'name'],
 			'conditions' => ['Categories.slug' => $categorySlug]
 		])->first();
+
+
+		if (!$category) {
+			throw new NotFoundException("Página Não encontrada");
+		}
 
 		$this->paginate = [
 			'fields' => [
@@ -55,6 +62,7 @@ class SiteController extends AppController
 			}],
 			'limit' => 20
 		];
+
 		$this->set('videos', $this->paginate($this->Videos));
 		$this->set(compact('category'));
 	}
@@ -62,8 +70,8 @@ class SiteController extends AppController
 	{
 		if (!$this->request->query('q')) {
 			throw new NotfoundException("Página não encontrada");
-			
 		}
+		
 		$q = str_replace(' ', '%', $this->request->query('q'));
 
 		$this->paginate =[
