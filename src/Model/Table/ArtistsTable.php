@@ -77,6 +77,7 @@ class ArtistsTable extends Table
             ->allowEmpty('photo_dir');
 
         $validator
+            ->requirePresence('photo', 'create')
             ->allowEmpty('photo');
 
         return $validator;

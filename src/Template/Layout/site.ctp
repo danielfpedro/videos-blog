@@ -9,7 +9,7 @@
     <?= $this->Html->meta('icon') ?>
 
     <?= $this->Html->css('../components/bootstrap/dist/css/bootstrap.min') ?>
-    <?= $this->Html->css('../components/fonta-wesome/css/font-awesome.min') ?>
+    <?= $this->Html->css('../components/font-awesome/css/font-awesome.min') ?>
     <?= $this->Html->css('style') ?>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,400' rel='stylesheet' type='text/css'>  

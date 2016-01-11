@@ -60,6 +60,7 @@ class VideosTable extends Table
         ]);
 
         $this->belongsTo('Categories');
+        $this->belongsTo('Artists');
     }
 
     public function getHomeDestaques ($limit){

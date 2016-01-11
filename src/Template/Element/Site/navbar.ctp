@@ -25,21 +25,21 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <?= $this->Html->link('Música', [
+                    <?= $this->Html->link('Clipe', [
                         'action' => 'category',
-                        'musica'
+                        'Clipe'
+                    ]) ?>
+                </li>
+                <li>
+                    <?= $this->Html->link('Ao vivo', [
+                        'action' => 'category',
+                        'Ao vivo'
                     ]) ?>
                 </li>
                 <li>
                     <?= $this->Html->link('Entrevista', [
                         'action' => 'category',
                         'entrevista'
-                    ]) ?>
-                </li>
-                <li>
-                    <?= $this->Html->link('Dicas e Conselhos', [
-                        'action' => 'category',
-                        'dicas-e-conselhos'
                     ]) ?>
                 </li>
             </ul>

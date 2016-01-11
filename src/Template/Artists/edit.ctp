@@ -13,7 +13,7 @@
     </ul>
 </nav>
 <div class="artists form large-9 medium-8 columns content">
-    <?= $this->Form->create($artist) ?>
+    <?= $this->Form->create($artist, ['type' => 'file']) ?>
     <fieldset>
         <legend><?= __('Edit Artist') ?></legend>
         <?php
