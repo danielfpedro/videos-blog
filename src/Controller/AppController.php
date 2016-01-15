@@ -39,7 +39,25 @@ class AppController extends Controller
     public function initialize()
     {
         parent::initialize();
-        $this->loadComponent('Flash');
+
         $this->set('appName', $this->appName);
+
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('Flash');
+        $this->loadComponent('Paginator');
+        // $this->loadComponent('Auth', [
+        //     // 'authorize' => 'controller',
+        //     'loginRedirect' => ['controller' => 'Site', 'action' => 'index'],
+        //     'logoutRedirect' => ['controller' => 'Site', 'action' => 'index'],
+        //     'authenticate' => [
+        //         'Facebook' => [
+        //         ]
+        //     ]
+        // ]);
+        $this->loadComponent('Auth', [
+            'authenticate' => [
+                'Facebook'
+            ]
+        ]);
     }
 }
