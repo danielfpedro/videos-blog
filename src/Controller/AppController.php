@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -59,5 +60,11 @@ class AppController extends Controller
                 'Facebook'
             ]
         ]);
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $authUser = $this->Auth->user();
+        $this->set(compact('authUser'));
     }
 }

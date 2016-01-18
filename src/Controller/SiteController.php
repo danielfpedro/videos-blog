@@ -37,11 +37,18 @@ class SiteController extends AppController
 
 	public function player($slug)
 	{
+		$playlistId = $this->request->query('playlist');
+
 		$video = $this->Videos->getPlayedVideo($slug);
+
 		if (!$video) {
 			throw new NotFoundException("Página não encontrada");
 		}
-		$this->set(compact('video'));
+
+		if ($playlistId) {
+			$playlist = $this->Videos->Playlists->get($playlistId);
+		}
+		$this->set(compact('video', 'playlist'));
 	}
 	public function category($categorySlug)
 	{

@@ -30,6 +30,12 @@
 						<?= $this->Text->truncate($video->description, 160) ?>
 					</p>
 					<?= $this->element('Site/social_share') ?>
+					<button
+						type="button"
+						class="btn-add-to-playlist"
+						data-video-id="<?= $video->id ?>"
+						data-toggle="modal"
+						data-target="#modal-playlists-list">Adicionar para playlist</button>
 				</div>
 			</div>
 		</div>

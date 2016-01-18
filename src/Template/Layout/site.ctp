@@ -42,6 +42,37 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<div
+    class="modal fade"
+    id="modal-playlists-list"
+    tabindex="-1"
+    role="dialog"
+    data-myplaylists-url="<?= $this->Url->build(['controller' => 'Playlists', 'action' => 'myPlaylists', '_ext' => 'json']) ?>"
+    data-playlist-add-url="<?= $this->Url->build(['controller' => 'Playlists', 'action' => 'add', '_ext' => 'json']) ?>"
+    data-add-video-to-playlist-url="<?= $this->Url->build(['controller' => 'Playlists', 'action' => 'addVideo', '_ext' => 'json']) ?>"
+    >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Playlists</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+            <button
+                type="button"
+                class="btn btn-primary btn-create-playlist">
+                Nova Playlist
+            </button>
+        </div>
+        <div id="content">
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
     <?= $this->element('Site/navbar') ?>
 
     <?= $this->Flash->render() ?>

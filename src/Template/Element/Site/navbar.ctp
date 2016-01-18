@@ -25,6 +25,14 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 <!--             <ul class="nav navbar-nav">
                 <li>
+                    <?= $this->Html->link('Minhas Playslists', [
+                        'controller' => 'Playlists',
+                        'action' => 'index',
+                    ]) ?>
+                </li>
+            </ul> -->
+<!--             <ul class="nav navbar-nav">
+                <li>
                     <?= $this->Html->link('Clipe', [
                         'action' => 'category',
                         'clipe'
@@ -46,8 +54,8 @@
 
             
 
-            <div class="navbar-right">
-                <ul class="nav navbar-nav">
+            <div class="">
+                <ul class="nav navbar-nav navbar-right">
     <!--                 <li>
                     <form
                     class="navbar-form navbar-left"
@@ -92,7 +100,25 @@
                         </a>
                     </li>
                 </ul>
-                <?= $this->Html->link('Entrar', [], ['class' => 'btn btn-sm btn-primary navbar-btn navbar-right']) ?>
+                <div class="navbar-right">
+                    <?= $this->Html->link('Entrar', [], ['class' => 'btn btn-primary navbar-btn ']) ?>
+                    <div class="dropdown">
+                        <a href="#" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <?= $this->Html->link('Minhas Playslists', [
+                                    'controller' => 'Playlists',
+                                    'action' => 'index',
+                                ]) ?>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <?= $this->Html->link('Logout', ['controller' => 'Users', 'action' => 'logout']) ?>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
             </div>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

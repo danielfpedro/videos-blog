@@ -1,5 +1,6 @@
 <?= $this->assign('title', $video->title) ?>
 
+<?= $this->Html->script('site/player', ['inline' => false]) ?>
 <?= $this->Html->script('http://www.youtube.com/player_api', ['inline' => false]) ?>
 
 <style>
@@ -27,7 +28,7 @@
 					<div
 						class="embed-responsive embed-responsive-16by9"
 						style="background-color: #000">
-<!-- 						<iframe
+<!-- 					<iframe
 							id="player"
 							data-src="https://www.youtube.com/embed/<?= $video->youtube_code ?>?autohide=1&showinfo=0&rel=0&modestbranding=1&autoplay=1"
 							style=""
@@ -105,6 +106,20 @@
 </div>
 
 <div class="container" style="margin-top: 60px;">
+	<?php if ($this->request->query('playlist')): ?>
+		<div
+			class="row"
+			id="container-playlist"
+			data-playlist-videos-url="<?= $this->Url->build(['controller' => 'Playlists', 'action' => 'videos', $playlist->id]) ?>"
+			data-player-url="<?= $this->Url->build(['controller' => 'Site', 'action' => 'player']) ?>">
+			<div class="col-md-6">
+				<h3 class="title-section">Playlist - <?= $playlist->name ?></h3>
+				<ul id="playlist-videos">
+					
+				</ul>
+			</div>
+		</div>
+	<?php endif ?>
 	<div class="row">
 		<div class="col-md-8">
 			<h4 class="title-section">Comentários</h4>

@@ -61,6 +61,7 @@ class VideosTable extends Table
 
         $this->belongsTo('Categories');
         $this->belongsTo('Artists');
+        $this->belongsToMany('Playlists');
     }
 
     public function getHomeDestaques ($limit){
@@ -106,7 +107,9 @@ class VideosTable extends Table
     }
 
     public function getPlayedVideo ($slug){
+        
         $fields = $this->commonFields;
+
         $fields[] = 'Videos.id'; // Pega o ID tb para excluir este video do Widget de videos populares
         $fields[] = 'Videos.youtube_code';
 
